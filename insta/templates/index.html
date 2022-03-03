@@ -1,18 +1,32 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
+<!-- content  -->
+{% block content%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>homePage</title>
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-</head>
+<div class="main mt-5 offset-2">
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="landing-img">
+                <img src="../static/images/insta.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="auth-data">
+                <h2 class="inst-tle">Instagram</h2>
+                <div class="u-name">
+                    <input type="text" placeholder="phone number, username, or email" name="username">
+                </div>
+                <div class="psw">
+                    <input type="password" placeholder="password" name="password">
+                </div>
+                <button class="submit">log in</button>
+            </div>
+            <div class="hv-ac">
+                <p>Have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<body>
 
-</body>
-
-</html>
+{% endblock content%}
