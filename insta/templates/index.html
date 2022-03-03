@@ -14,7 +14,7 @@
             <div class="auth-data">
                 <h2 class="inst-tle">Instagram</h2>
                 <div class="u-name">
-                    <input type="text" placeholder="phone number, username, or email" name="username">
+                    <input type="text" placeholder="username" name="username">
                 </div>
                 <div class="psw">
                     <input type="password" placeholder="password" name="password">
@@ -22,7 +22,7 @@
                 <button class="submit">log in</button>
             </div>
             <div class="hv-ac">
-                <p>Have an account? <a href="#">Sign Up</a></p>
+                <p>Have an account? <a href="{% url 'register' %}">Sign Up</a></p>
             </div>
         </div>
     </div>

@@ -67,3 +67,71 @@ body {
     padding: .6rem;
     text-align: center;
 }
+
+
+/* REGISTERPAGE  */
+
+.reg {
+    margin: 5rem 0 0 0;
+    padding: 3rem;
+    /* border: 1px solid #eee; */
+}
+
+.reg-data {
+    align-items: center;
+}
+
+.wrap {
+    text-align: center;
+}
+
+.wrap .sub-tle {
+    font-size: 2.8rem;
+    margin-bottom: 1.3rem;
+    letter-spacing: .1rem;
+    font-weight: 400;
+    color: #1A92F1;
+}
+
+.wrap p {
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.input-group input {
+    width: 80%;
+    padding: .6rem;
+    margin: .8rem 0;
+    outline: none;
+    border: 1px solid #eee;
+}
+
+.input-group input::placeholder {
+    text-transform: capitalize;
+}
+
+form button {
+    outline: none;
+    width: 80%;
+    padding: .6rem;
+    text-align: center;
+    color: #fff;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    border: none;
+    background-color: #1A92F1;
+}
+
+form p {
+    text-align: center;
+    margin-left: -80px;
+    font-size: 1.2rem;
+    opacity: .5;
+}
+
+form p>a {
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-decoration: none;
+}

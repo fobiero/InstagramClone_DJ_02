@@ -1,1 +1,33 @@
-Register
+{% extends "base.html" %}
+
+<!-- content  -->
+{% block content%}
+<div class="reg">
+    <div class="row reg-data">
+        <div class="col-md-6">
+            <div class="wrap">
+                <h3 class="sub-tle">Instagram</h3>
+                <p>Sign up to see photos and videos from your friends.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" placeholder="email" name="email">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="full names" name="name">
+                </div>
+                <div class="input-group">
+                    <input type="text" placeholder="username" name="username">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="password" name="password">
+                </div>
+                <button class="submit">sign up</button>
+                <p>Have an account? <a href="#">Log in</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content%}
