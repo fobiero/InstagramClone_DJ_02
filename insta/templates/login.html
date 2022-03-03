@@ -1,1 +1,28 @@
-Login
+{% extends "base.html" %}
+
+<!-- content  -->
+{% block content%}
+<div class="reg">
+    <div class="row reg-data">
+        <div class="col-md-6">
+            <div class="wrap">
+                <h3 class="sub-tle"><a href="{% url 'index' %}">InstaClone</a></h3>
+                <p>ready to explore? let'd do this</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form action="" method="">
+                <div class="input-group">
+                    <input type="text" placeholder="username" name="username">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="password" name="password">
+                </div>
+                <button class="submit">sign up</button>
+                <p class="rm">New member? <a href="{% url 'register' %}">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr class="hr"> {% endblock content%}

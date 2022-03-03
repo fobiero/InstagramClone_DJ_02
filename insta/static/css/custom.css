@@ -14,33 +14,42 @@ body {
 }
 
 .landing-img img {
-    width: 100%;
-    max-height: 600px;
-    height: 80%;
+    width: 60%;
+    height: auto;
+    float: right;
     text-align: center;
+}
+
+.sub-tle {
+    font-size: 2.8rem;
+    margin-bottom: 1.3rem;
+    letter-spacing: .1rem;
+    font-weight: 400;
+    color: #1A92F1;
+}
+
+.sub-tle a {
+    text-decoration: none;
 }
 
 
 /* INDEXPAGE  */
 
+.auth-data {
+    margin: 3.5rem 0 1rem 0;
+}
+
 .auth-data,
 .hv-ac {
+    width: 80%;
     background: #fff;
     padding: 2rem 3rem;
     border: 1px solid #eee;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
 }
 
 .hv-ac {
     text-align: center;
-}
-
-.inst-tle {
-    text-align: center;
-    margin: 3rem 0;
-    letter-spacing: .1rem;
-    font-size: 3rem;
-    font-weight: 400;
 }
 
 .u-name input {
@@ -85,14 +94,6 @@ body {
     text-align: center;
 }
 
-.wrap .sub-tle {
-    font-size: 2.8rem;
-    margin-bottom: 1.3rem;
-    letter-spacing: .1rem;
-    font-weight: 400;
-    color: #1A92F1;
-}
-
 .wrap p {
     font-weight: 300;
     font-size: 1.2rem;
@@ -123,15 +124,30 @@ form button {
     background-color: #1A92F1;
 }
 
-form p {
+.rm {
     text-align: center;
-    margin-left: -80px;
-    font-size: 1.2rem;
-    opacity: .5;
 }
 
-form p>a {
-    font-weight: 400;
-    font-size: 1.5rem;
+.hr {
+    margin: 2rem 0;
+    color: #aaa;
+    width: 100%;
+    /* padding: .1rem; */
+}
+
+.links {
+    margin-bottom: 2rem;
+    text-align: center;
+    /* display: inline; */
+}
+
+.links a {
+    font-size: .8rem;
     text-decoration: none;
+    color: #aaa;
+    padding: 0 1rem;
+}
+
+.links a:hover {
+    color: #aaa;
 }

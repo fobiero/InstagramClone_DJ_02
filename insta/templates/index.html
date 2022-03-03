@@ -3,7 +3,7 @@
 <!-- content  -->
 {% block content%}
 
-<div class="main mt-5 offset-2">
+<div class="main mt-3">
     <div class="row">
         <div class="col-md-6 ">
             <div class="landing-img">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-6 ">
             <div class="auth-data">
-                <h2 class="inst-tle">Instagram</h2>
+                <h3 class="sub-tle"><a href="{% url 'index' %}">InstaClone</a></h3>
                 <div class="u-name">
                     <input type="text" placeholder="username" name="username">
                 </div>
@@ -22,11 +22,10 @@
                 <button class="submit">log in</button>
             </div>
             <div class="hv-ac">
-                <p>Have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+                <p class="rm">Have an account? <a href="{% url 'register' %}">Sign Up</a></p>
             </div>
         </div>
     </div>
 </div>
 
-
-{% endblock content%}
+<hr class="hr"> {% endblock content%}
