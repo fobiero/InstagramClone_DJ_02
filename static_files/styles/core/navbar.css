@@ -1,17 +1,17 @@
-#user__avatar img{
-    height: 26px;
-    width: 26px;
+#user__avatar img {
+    height: 10px;
+    width: 10px;
 }
 
 .navbar-nav .dropdown-menu {
     position: absolute !important;
 }
 
-.nav__icons{
+.nav__icons {
     font-size: 24px;
 }
 
-.signout__btn{
+.signout__btn {
     border: none;
     background: none;
     cursor: pointer;

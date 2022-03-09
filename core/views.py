@@ -6,9 +6,7 @@ from core.forms import PostCreateForm
 from django.db.models import Count
 
 User = get_user_model()
-# Create your views here.
-# class HomeView(TemplateView):
-class HomeView(View):
+class home(View):
     template_name ='core/feed.html'
     form_class = PostCreateForm
 
@@ -19,7 +17,7 @@ class HomeView(View):
         context ={'form':form,'all_posts':all_posts}
         return render(request,self.template_name,context=context)
 
-class PostCreateView(View):
+class createPost(View):
     template_name ='core/feed.html'
     form_class = PostCreateForm
 
@@ -33,7 +31,7 @@ class PostCreateView(View):
             context ={'form':form}
             return render(request,self.template_name,context=context)
 
-class PostDetailView(View):
+class postDetail(View):
     template_name = 'core/post_detail.html'
     def get(self,request, *args, **kwargs):
         # catch id which we pass through url
@@ -59,7 +57,7 @@ class PostDetailView(View):
         return render(request,self.template_name,context=context)
 
 
-class PostDeleteView(View):
+class deletePost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')
         try:
@@ -70,7 +68,7 @@ class PostDeleteView(View):
             post_obj.delete()
         return redirect(request.META.get('HTTP_REFERER'))
 
-class PostSaveView(View):
+class savePost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')   
         try:
@@ -85,7 +83,7 @@ class PostSaveView(View):
 
         return redirect(request.META.get('HTTP_REFERER'))
  
-class PostUnsaveView(View):
+class unsavePost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')   
         try:
@@ -101,7 +99,7 @@ class PostUnsaveView(View):
 
         return redirect(request.META.get('HTTP_REFERER'))
    
-class PostLikeView(View):
+class likePost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')
         try:
@@ -112,7 +110,7 @@ class PostLikeView(View):
 
 
 
-class PostUnlikeView(View):
+class unlikePost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')
         try:
@@ -122,7 +120,7 @@ class PostUnlikeView(View):
             pass
         return redirect(request.META.get('HTTP_REFERER'))
         
-class PostCommentView(View):
+class commentPost(View):
     def post(self,request,*args,**kwargs):
         post_id = kwargs.get('id')
         comment_text = request.POST.get('comment_text')
@@ -130,7 +128,7 @@ class PostCommentView(View):
         return redirect(request.META.get('HTTP_REFERER'))
         
 
-class FollowDoneView(View):
+class followView(View):
     def post(self,request,*args,**kwargs):
         followed_user_id = request.POST.get('followed_user_id')
         followed_user_obj = User.objects.get(pk=followed_user_id)
@@ -142,7 +140,7 @@ class FollowDoneView(View):
 
         return redirect(request.META.get('HTTP_REFERER'))
 
-class UnfollowDoneView(View):
+class unfollowView(View):
     def post(self,request,*args,**kwargs):
         unfollowed_user_id = request.POST.get('unfollowed_user_id')
         unfollowed_user_obj = User.objects.get(pk=unfollowed_user_id)
@@ -156,19 +154,19 @@ class UnfollowDoneView(View):
         return redirect(request.META.get('HTTP_REFERER'))
        
 
-class LikePostsView(View):
+class likePost(View):
     template_name = 'core/liked_posts.html'
     def get(self,request,*args,**kwargs):
         return render(request,self.template_name)
 
-class ExplorePostsView(View):
+class explorePost(View):
     template_name = 'core/posts_explore.html'
     def get(self,request,*args,**kwargs):
         all_posts = Post.objects.annotate(count=Count('like')).order_by('-count')
         context ={'all_posts':all_posts}
         return render(request,self.template_name,context=context)
 
-class SavePostsView(View):
+class savedPost(View):
     template_name = 'core/saved_posts.html'
     def get(self,request,*args,**kwargs):
         return render(request,self.template_name)
