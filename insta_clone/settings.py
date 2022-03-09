@@ -29,7 +29,7 @@ from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', False)  
 # DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
@@ -72,6 +72,8 @@ STATICFILES_DIRS = (
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
+SECRET_KEY='keysecret'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
