@@ -27,7 +27,7 @@ SECRET_KEY = 'keysecret'
 DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['instagramprojectclone.herokuapp.com','127.0.0.1']
 
 
 # Application definition

@@ -39,7 +39,6 @@ Attached are links to github and live links to fully fetch source code and live 
 * [Github Repo link](https://github.com/fobiero/InstagramClone_DJ_02)
 
 
-
 ## Technologies used 
 
 * Python3
