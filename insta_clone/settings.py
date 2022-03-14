@@ -12,15 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 # import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
-# INCASE FAILS UNCOMMENT THIS LINE 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# DEPLOY FILES 
-
-# DECOMPILE CONTENT FOR DEPLOY 
 
 import os
 import django_heroku
@@ -29,20 +20,22 @@ from decouple import config,Csv
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG', False)  
+DEBUG = os.environ.get('DEBUG', True)  
 # DEBUG = config('DEBUG', default=False, cast=bool)
 # development
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.db.backends.postgresql',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
            'HOST': config('DB_HOST'),
            'PORT': '',
        }
-       
    }
 # production
 else:
@@ -55,7 +48,7 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
@@ -77,7 +70,7 @@ SECRET_KEY='keysecret'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = False
+# DEBUG = False
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['instagramprojectclone.herokuapp.com','127.0.0.1']
@@ -98,7 +91,6 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'core.apps.CoreConfig',
     'authentication.apps.AuthenticationConfig',
-    
 ]
 
 MIDDLEWARE = [
@@ -146,15 +138,16 @@ WSGI_APPLICATION = 'insta_clone.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instadb',
-        'USER': 'moringa',
-        'PASSWORD': 'root',
-        'HOST':'localhost'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'instadb',
+#         'USER': 'moringa',
+#         'PASSWORD': 'root',
+#         'HOST':config("DB_HOST"),
+#         'PORT':'',
+#     }
+# }
 
 
 # Password validation
@@ -174,7 +167,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -198,9 +190,6 @@ STATIC_ROOT = 'static'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_files')]
 # to store media picture in media folder 
 # at Development mode django not able to server by static
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 AUTH_USER_MODEL ='user.User'
 LOGIN_URL = 'signin_view'
@@ -215,6 +204,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
